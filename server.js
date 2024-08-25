@@ -19,8 +19,13 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
+const corsOptions = {
+  origin: 'https://watchmyntt-49b8-56gyica8r-ritik-rajs-projects-141c9aed.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
 // Middlewares
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan("dev"));
 
